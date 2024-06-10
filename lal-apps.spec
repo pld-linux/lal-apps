@@ -2,12 +2,12 @@
 Summary:	LAL Applications
 Summary(pl.UTF-8):	Aplikacje LAL
 Name:		lal-apps
-Version:	9.1.0
+Version:	10.0.0
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://software.igwn.org/lscsoft/source/lalsuite/lalapps-%{version}.tar.xz
-# Source0-md5:	c6902a229427dad3feb4f2011798d3a8
+# Source0-md5:	0bfc74f188a40dd0a5e633478dc18b77
 Patch0:		%{name}-env.patch
 URL:		https://wiki.ligo.org/Computing/LALSuite
 BuildRequires:	autoconf >= 2.63
@@ -16,18 +16,19 @@ BuildRequires:	cfitsio-devel
 BuildRequires:	fftw3-devel >= 3
 BuildRequires:	fftw3-single-devel >= 3
 BuildRequires:	gsl-devel >= 1.13
-BuildRequires:	help2man
-BuildRequires:	lal-devel >= 7.2.2
-BuildRequires:	lal-burst-devel >= 1.7.0
-BuildRequires:	lal-frame-devel >= 2.0.0
+BuildRequires:	help2man >= 1.37
+BuildRequires:	lal-devel >= 7.5.0
+BuildRequires:	lal-burst-devel >= 2.0.0
+BuildRequires:	lal-frame-devel >= 3.0.0
 BuildRequires:	lal-inference-devel >= 4.1.0
-BuildRequires:	lal-inspiral-devel >= 3.0.0
-BuildRequires:	lal-metaio-devel >= 3.0.0
-BuildRequires:	lal-pulsar-devel >= 5.2.0
-BuildRequires:	lal-simulation-devel >= 4.0.0
+BuildRequires:	lal-inspiral-devel >= 5.0.0
+BuildRequires:	lal-metaio-devel >= 4.0.0
+BuildRequires:	lal-pulsar-devel >= 6.0.0
+BuildRequires:	lal-simulation-devel >= 5.4.0
 BuildRequires:	libframe-devel >= 8.39.2
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:2
+BuildRequires:	metaio-devel >= 8.4.0
 BuildRequires:	octave-devel >= 1:3.2.0
 BuildRequires:	pkgconfig
 BuildRequires:	python3-devel >= 1:3.5
@@ -35,15 +36,16 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	zlib-devel
 Requires:	gsl >= 1.13
-Requires:	lal >= 7.2.2
-Requires:	lal-burst >= 1.7.0
-Requires:	lal-frame >= 2.0.0
+Requires:	lal >= 7.5.0
+Requires:	lal-burst >= 2.0.0
+Requires:	lal-frame >= 3.0.0
 Requires:	lal-inference >= 4.1.0
-Requires:	lal-inspiral >= 3.0.0
-Requires:	lal-metaio >= 3.0.0
-Requires:	lal-pulsar >= 5.2.0
-Requires:	lal-simulation >= 4.0.0
+Requires:	lal-inspiral >= 5.0.0
+Requires:	lal-metaio >= 4.0.0
+Requires:	lal-pulsar >= 6.0.0
+Requires:	lal-simulation >= 5.4.0
 Requires:	libframe >= 8.39.2
+Requires:	metaio >= 8.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -58,9 +60,9 @@ bibliotek LAL.
 Summary:	Python LAL Apps library
 Summary(pl.UTF-8):	Biblioteka LAL Apps dla Pythona
 Group:		Libraries/Python
-Requires:	python3-lal >= 7.2.2
-Requires:	python3-lalburst >= 1.7.0
-Requires:	python3-lalpulsar >= 5.2.0
+Requires:	python3-lal >= 7.5.0
+Requires:	python3-lalburst >= 2.0.0
+Requires:	python3-lalpulsar >= 6.0.0
 Requires:	python3-ligo-lw >= 1.7.0
 Requires:	python3-ligo-segments
 Requires:	python3-lscsoft-glue
@@ -83,7 +85,8 @@ Biblioteka LAL Apps dla Pythona
 %{__autoheader}
 %{__automake}
 %configure \
-	--disable-silent-rules \
+	PYTHON=%{__python3} \
+	--disable-silent-rules
 
 %{__make}
 
@@ -196,7 +199,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/lalapps_frinfo.1*
 %{_mandir}/man1/lalapps_frjoin.1*
 %{_mandir}/man1/lalapps_frread.1*
-%{_mandir}/man1/lalapps_hello.1*
 %{_mandir}/man1/lalapps_mkcalfac.1*
 %{_mandir}/man1/lalapps_mkcalref.1*
 %{_mandir}/man1/lalapps_power.1*
@@ -206,10 +208,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/lalapps_cafe
 %attr(755,root,root) %{_bindir}/lalapps_cosmicstring_pipe
-%attr(755,root,root) %{_bindir}/lalapps_make_nr_hdf_catalog
 %attr(755,root,root) %{_bindir}/lalapps_power_likelihood_pipe
 %attr(755,root,root) %{_bindir}/lalapps_power_pipe
-%attr(755,root,root) %{_bindir}/lalapps_run_sqlite
 %attr(755,root,root) %{_bindir}/lalapps_string_apply_vetoes
 %attr(755,root,root) %{_bindir}/lalapps_string_calc_likelihood
 %attr(755,root,root) %{_bindir}/lalapps_string_contour_plotter

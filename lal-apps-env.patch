@@ -1,7 +1,7 @@
---- lalapps-9.1.0/Makefile.am.orig	2022-11-03 23:47:47.055846839 +0100
-+++ lalapps-9.1.0/Makefile.am	2023-02-18 22:00:01.240663681 +0100
-@@ -21,7 +21,4 @@ SUBDIRS = \
- user_environment = \
+--- lalapps-10.0.0/Makefile.am.orig	2024-06-09 22:17:54.694541384 +0200
++++ lalapps-10.0.0/Makefile.am	2024-06-10 06:24:28.846383094 +0200
+@@ -22,7 +22,4 @@ user_environment = \
+ 	trailingcolon MANPATH; \
  	set $(PACKAGE)_PREFIX $(prefix); \
  	set $(PACKAGE)_DATADIR $(pkgdatadir); \
 -	prepend MANPATH $(mandir); \
