@@ -3,7 +3,7 @@ Summary:	LAL Applications
 Summary(pl.UTF-8):	Aplikacje LAL
 Name:		lal-apps
 Version:	10.0.0
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://software.igwn.org/lscsoft/source/lalsuite/lalapps-%{version}.tar.xz
