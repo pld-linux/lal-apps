@@ -3,7 +3,7 @@ Summary:	LAL Applications
 Summary(pl.UTF-8):	Aplikacje LAL
 Name:		lal-apps
 Version:	10.0.0
-Release:	
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://software.igwn.org/lscsoft/source/lalsuite/lalapps-%{version}.tar.xz
@@ -76,7 +76,7 @@ Biblioteka LAL Apps dla Pythona
 
 %prep
 %setup -q -n lalapps-%{version}
-%patch0 -p1
+%patch -P 0 -p1
 
 %build
 %{__libtoolize}
